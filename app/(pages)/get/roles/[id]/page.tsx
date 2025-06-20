@@ -12,6 +12,7 @@ export default async function Page({ params }:PageProps) {
   return (
     <div>
       <h1>Role selected: {role?.role_name}</h1>
+      <h2>Id: {role?.id_role}</h2>
     </div>
   );
 }
