@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import LoginHandler from '../../components/LoginHandler'
+import GET from '../../api/user/GET'
 
 
 export default function Page() {
@@ -10,11 +10,11 @@ export default function Page() {
   const [password, setPassword] = useState("");
 
   const [done, setDone] = useState("hidden")
-  const [message, setMessage] = useState('Não tá tendo')
+  const [message, setMessage] = useState('')
 
   const submit = async () => {
     const user = {email: email, password: password}
-    if (await LoginHandler(user)) {
+    if (await GET(user)) {
       setMessage('Log-in efetuado com sucesso!')
       setDone(`visible text-green-600`)
     } else {

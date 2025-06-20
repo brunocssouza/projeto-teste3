@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import RegisterHandler from "../../components/RegisterHandler";
+import POST from "../../api/user/POST";
 
 
 export default function Page() {
@@ -13,9 +13,9 @@ export default function Page() {
 
   const [done, setDone] = useState("hidden")
 
-  const submit = () => {
+  const submit = async () => {
     const user = {name: name, cpf: Number(cpf), email: email, password: password}
-    if (RegisterHandler(user)) {
+    if (await POST(user)) {
       setDone('visible')
     }
   }
