@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import LoginHandler from "../../api/user/GET";
+import GET from "../../api/user/GET";
 
 export default function Page() {
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ export default function Page() {
 
   const submit = async () => {
     const user = { email: email, password: password };
-    if (await LoginHandler(user)) {
+    if (await GET(user)) {
     } else {
     }
   };

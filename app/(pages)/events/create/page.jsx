@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import LoginHandler from "../../../api/user/GET";
+import POST from "../../../api/event/POST";
 
 export default function Page() {
   const [eventName, setEventName] = useState("");
@@ -12,7 +12,7 @@ export default function Page() {
 
   const submit = async () => {
     const event = { name: eventName, capacity: eventCapacity };
-    if (await LoginHandler(user)) {
+    if (await POST(user)) {
     } else {
     }
   };
