@@ -1,4 +1,4 @@
-'use server'
+"use server";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { prisma } from "@/lib/prisma";
@@ -9,7 +9,6 @@ export default async function RegisterHandler(user: {
   email: string;
   password: string;
 }) {
-
   try {
     console.log("Registrando...");
     await prisma.user.create({
@@ -22,8 +21,7 @@ export default async function RegisterHandler(user: {
     });
     console.log("Registrado");
     return true;
-  } catch (error) {
-    console.error("Erro ao registrar:", error);
+  } catch {
     return false;
   }
 }
