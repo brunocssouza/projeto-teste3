@@ -10,17 +10,22 @@ export default function Page() {
   const [password, setPassword] = useState("");
 
   const [done, setDone] = useState("hidden")
+  const [message, setMessage] = useState('Não tá tendo')
 
-  const submit = () => {
+  const submit = async () => {
     const user = {email: email, password: password}
-    if (LoginHandler(user)) {
-      setDone('visible')
+    if (await LoginHandler(user)) {
+      setMessage('Log-in efetuado com sucesso!')
+      setDone(`visible text-green-600`)
+    } else {
+      setMessage('Credenciais incorretas!')
+      setDone(`visible text-red-600`)
     }
   }
 
   return (
     <>
-      <main className="min-w-full h-screen flex justify-center items-center border border-pink-500 font-sans bg-yellow-300">
+      <main className="min-w-full h-screen flex justify-center items-center font-sans bg-yellow-300">
         <div className="container flex flex-col shadow-lg bg-white border border-s-neutral-200 rounded w-10/12 h-2/3 md:w-6/12 lg:w-4/12 items-center justify-center font-medium break-words px-4 text-black">
           <h1 className="text-center font-bold text-4xl mb-10">LOG-IN</h1>
           <form>
@@ -46,7 +51,7 @@ export default function Page() {
             Submit
           </button>
           <div>
-            <p className={`text-green-600 text-center pt-5 ${done}`} id="sucessMessage">Log-in efetuado com sucesso!</p>
+            <p className={`text-center pt-5 ${done}`}>{message}</p>
           </div>
           </form>
         </div>

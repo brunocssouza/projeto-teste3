@@ -15,7 +15,8 @@ export default async function LoginHandler(data: {
     },
   });
 
-  if (user) {
+
+  if (user != null) {
     console.log("Logado!")
     return true
   } else {
