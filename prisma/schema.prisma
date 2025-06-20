@@ -25,3 +25,10 @@ model User {
   email     String  @unique
   password  String?
 }
+
+model Event {
+  id_event String @id @default(cuid())
+  event_name String
+  seats_capacity Int
+  seats_booked Int @default(0)
+}

@@ -15,7 +15,6 @@ export default async function LoginHandler(data: {
     },
   });
 
-
   if (user != null) {
     console.log("Logado!")
     return true
@@ -23,4 +22,5 @@ export default async function LoginHandler(data: {
     console.log("Problema ocorreu.")
     return false
   }
+  
 }
