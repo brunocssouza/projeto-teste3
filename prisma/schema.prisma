@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Role {
+  id_role   String @id @default(cuid())
+  role_name String
+}
+
+model User {
+  id_user   String  @id @default(cuid())
+  user_name String
+  cpf       Int     @unique
+  email     String  @unique
+  password  String?
+}
